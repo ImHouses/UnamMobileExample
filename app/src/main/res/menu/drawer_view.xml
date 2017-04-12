@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_feed_fragment"
+            android:title="Feed"
+            android:checked="true"
+            />
+        <item
+            android:id="@+id/nav_negocios_fragment"
+            android:title="Negocios" />
+        <item
+            android:id="@+id/nav_user_fragment"
+            android:title="Usuario" />
+    </group>
+</menu>

@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">UnamMobileExample</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="drawer_open">Drawer open</string>
+    <string name="drawer_close">Drawer closed</string>
+    <string name="google_maps_key">AIzaSyAMbNEqoHhdLMVWSxdG1M-BcXONUKnI8m4</string>
+</resources>
