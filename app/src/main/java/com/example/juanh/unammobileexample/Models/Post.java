@@ -37,6 +37,10 @@ public class Post {
     }
 
     public String toString() {
-        return String.format("Titulo:%s\nUsuario:%s\n", this.titulo, this.texto);
+        return String.format("Titulo:%s\nUsuario:%s\nTexto:%s\nURL IMAGEN:%s",
+                this.titulo,
+                this.userpost,
+                this.texto,
+                this.imagen);
     }
 }

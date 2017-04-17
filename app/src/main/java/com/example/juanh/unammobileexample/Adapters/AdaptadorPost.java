@@ -1,6 +1,7 @@
 package com.example.juanh.unammobileexample.Adapters;
 
 import android.content.Context;
+import android.media.Image;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,41 +48,21 @@ public class AdaptadorPost extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder;
-        if (convertView == null) {
-            holder = new ViewHolder();
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.item_post, parent, false);
-            holder.titulo = (TextView) convertView.findViewById(R.id.post_titulo);
-            holder.usuario = (TextView) convertView.findViewById(R.id.post_user);
-            holder.texto = (TextView) convertView.findViewById(R.id.post_texto);
-            holder.imagen = (ImageView) convertView.findViewById(R.id.post_imagen);
-            convertView.setTag(holder);
-        } else {
-            holder = (ViewHolder) convertView.getTag();
-        }
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View v = inflater.inflate(R.layout.item_post, null);
         Post p = posts.get(position);
-        holder.titulo.setText(p.getTitulo());
-        holder.usuario.setText(p.getUserpost());
-        holder.texto.setText(p.getTexto());
+        ((TextView) v.findViewById(R.id.post_titulo)).setText(p.getTitulo());
+        ((TextView) v.findViewById(R.id.post_texto)).setText(p.getTexto());
+        ((TextView) v.findViewById(R.id.post_user)).setText(p.getUserpost());
+        ImageView i = (ImageView) v.findViewById(R.id.post_imagen);
+        i.setVisibility(View.INVISIBLE);
         if (!TextUtils.isEmpty(p.getImagen())) {
+            i.setVisibility(View.VISIBLE);
             Picasso.with(context)
-                .load(p.getImagen())
-                .into(holder.imagen);
-        } else {
-            holder.imagen.setVisibility(View.INVISIBLE);
+                    .load(p.getImagen())
+                    .into(i);
         }
-        return convertView;
+        return v;
     }
-
-    private static class ViewHolder {
-        ImageView imagen;
-        TextView usuario;
-        TextView titulo;
-        TextView texto;
-    }
-
-
-
 
 }
